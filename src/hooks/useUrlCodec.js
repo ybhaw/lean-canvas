@@ -27,12 +27,18 @@ export function useUrlCodec() {
 
     setSharedData(validated);
     setIsShared(true);
+
+    // Update document title for shared canvases
+    if (validated.title) {
+      document.title = `${validated.title} — Lean Canvas`;
+    }
   }, []);
 
   const clearShared = useCallback(() => {
     setSharedData(null);
     setIsShared(false);
     setError(null);
+    document.title = 'Lean Canvas';
     // Remove hash without triggering navigation
     history.replaceState(null, '', window.location.pathname);
   }, []);

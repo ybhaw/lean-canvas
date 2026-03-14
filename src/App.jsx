@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import CanvasGrid from './components/CanvasGrid';
 import SharedBanner from './components/SharedBanner';
+import AboutModal from './components/AboutModal';
 import './App.css';
 
 function getInitialTheme() {
@@ -15,6 +16,7 @@ function getInitialTheme() {
 
 export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
   const [theme, setTheme] = useState(getInitialTheme);
 
   const store = useCanvasStore();
@@ -96,6 +98,7 @@ export default function App() {
             theme={theme}
             onToggleTheme={toggleTheme}
             isShared={isShared}
+            onAbout={() => setShowAbout(true)}
           />
 
           {isShared && (
@@ -129,6 +132,8 @@ export default function App() {
           </div>
         </div>
       </div>
+
+      {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
     </div>
   );
 }

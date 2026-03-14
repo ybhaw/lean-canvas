@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lean.ybhaw.com/sitemap.xml

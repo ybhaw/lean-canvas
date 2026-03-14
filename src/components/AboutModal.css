@@ -1,0 +1,103 @@
+.about-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.about-modal {
+  position: relative;
+  width: min(560px, 90vw);
+  max-height: 80vh;
+  overflow-y: auto;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-6);
+}
+
+.about-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color var(--transition-base),
+              color var(--transition-base);
+}
+
+.about-close:hover {
+  background: var(--color-hover);
+  color: var(--color-text);
+}
+
+/* Markdown content styling */
+.about-content h1 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--space-3);
+}
+
+.about-content h2 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-2);
+}
+
+.about-content p {
+  margin-bottom: var(--space-2);
+  line-height: var(--leading-relaxed);
+}
+
+.about-content ul {
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-5);
+}
+
+.about-content li {
+  margin-bottom: var(--space-1);
+  line-height: var(--leading-relaxed);
+}
+
+.about-content a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.about-content a:hover {
+  text-decoration: underline;
+}
+
+.about-content code {
+  font-size: 0.9em;
+  padding: 2px 6px;
+  background: var(--color-hover);
+  border-radius: var(--radius-sm);
+}
+
+.about-content pre {
+  margin-bottom: var(--space-3);
+  padding: var(--space-3);
+  background: var(--color-hover);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.about-content pre code {
+  padding: 0;
+  background: none;
+}
