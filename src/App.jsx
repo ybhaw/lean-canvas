@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useCanvasStore } from './hooks/useCanvasStore';
 import { useUrlCodec } from './hooks/useUrlCodec';
+import { useInstallPrompt } from './hooks/useInstallPrompt';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import CanvasGrid from './components/CanvasGrid';
@@ -21,6 +22,7 @@ export default function App() {
 
   const store = useCanvasStore();
   const { sharedData, isShared, error, clearShared, dismissError, getShareUrl } = useUrlCodec();
+  const { canInstall, install } = useInstallPrompt();
 
   // Apply theme to document
   useEffect(() => {
@@ -99,6 +101,8 @@ export default function App() {
             onToggleTheme={toggleTheme}
             isShared={isShared}
             onAbout={() => setShowAbout(true)}
+            canInstall={canInstall}
+            onInstall={install}
           />
 
           {isShared && (
