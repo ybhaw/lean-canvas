@@ -1,0 +1,215 @@
+/* ============================================================
+   Canvas Grid
+   ============================================================ */
+.canvas-grid-wrapper {
+  padding: var(--space-4);
+  max-width: 1400px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* ============================================================
+   Desktop: 5-column Lean Canvas Grid
+   ============================================================
+
+   Standard lean canvas layout:
+   +----------+------+---------+------+----------+
+   | Problem  | Sol  |  UVP    | UA   | Cust Seg |
+   |          |------+         +------|          |
+   |          | Met  |         | Chan |          |
+   +-----+----+------+---------+------+----+-----+
+   |  Cost Structure          | Revenue Streams  |
+   +--------------------------+------------------+
+
+   Grid areas:
+     Row 1: problem  solution  uvp      advantage  customers
+     Row 2: problem  metrics   uvp      channels   customers
+     Row 3: cost     cost      cost-rev revenue    revenue
+*/
+
+.canvas-grid {
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Mobile: Single column stack --- */
+.canvas-grid {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "uvp"
+    "problem"
+    "solution"
+    "metrics"
+    "advantage"
+    "channels"
+    "customers"
+    "cost"
+    "revenue";
+}
+
+/* --- Tablet: 2 columns --- */
+@media (min-width: 640px) {
+  .canvas-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "uvp        uvp"
+      "problem    customers"
+      "solution   advantage"
+      "metrics    channels"
+      "cost       revenue";
+  }
+}
+
+/* --- Desktop: Full 5-column lean canvas --- */
+@media (min-width: 1024px) {
+  .canvas-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
+    grid-template-areas:
+      "problem  problem  solution  solution  uvp       uvp       advantage  advantage  customers  customers"
+      "problem  problem  metrics   metrics   uvp       uvp       channels   channels   customers  customers"
+      "cost     cost     cost      cost      cost      revenue   revenue    revenue    revenue    revenue";
+  }
+}
+
+/* ============================================================
+   Canvas Section (individual cell)
+   ============================================================ */
+.canvas-section {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  min-height: 120px;
+  /* 1px gap via the parent background color acting as border */
+  gap: 0;
+}
+
+/* Grid area assignments */
+.canvas-section[data-section="problem"]   { grid-area: problem; }
+.canvas-section[data-section="solution"]  { grid-area: solution; }
+.canvas-section[data-section="uvp"]       { grid-area: uvp; }
+.canvas-section[data-section="advantage"] { grid-area: advantage; }
+.canvas-section[data-section="customers"] { grid-area: customers; }
+.canvas-section[data-section="channels"]  { grid-area: channels; }
+.canvas-section[data-section="metrics"]   { grid-area: metrics; }
+.canvas-section[data-section="cost"]      { grid-area: cost; }
+.canvas-section[data-section="revenue"]   { grid-area: revenue; }
+
+/* --- Section Header --- */
+.canvas-section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-subtle);
+  user-select: none;
+}
+
+/* Color-coded section headers */
+.canvas-section[data-section="problem"] .canvas-section-header {
+  background: var(--section-problem);
+  border-bottom-color: var(--section-problem-border);
+}
+.canvas-section[data-section="solution"] .canvas-section-header {
+  background: var(--section-solution);
+  border-bottom-color: var(--section-solution-border);
+}
+.canvas-section[data-section="uvp"] .canvas-section-header {
+  background: var(--section-uvp);
+  border-bottom-color: var(--section-uvp-border);
+}
+.canvas-section[data-section="advantage"] .canvas-section-header {
+  background: var(--section-advantage);
+  border-bottom-color: var(--section-advantage-border);
+}
+.canvas-section[data-section="customers"] .canvas-section-header {
+  background: var(--section-customers);
+  border-bottom-color: var(--section-customers-border);
+}
+.canvas-section[data-section="channels"] .canvas-section-header {
+  background: var(--section-channels);
+  border-bottom-color: var(--section-channels-border);
+}
+.canvas-section[data-section="metrics"] .canvas-section-header {
+  background: var(--section-metrics);
+  border-bottom-color: var(--section-metrics-border);
+}
+.canvas-section[data-section="cost"] .canvas-section-header {
+  background: var(--section-cost);
+  border-bottom-color: var(--section-cost-border);
+}
+.canvas-section[data-section="revenue"] .canvas-section-header {
+  background: var(--section-revenue);
+  border-bottom-color: var(--section-revenue-border);
+}
+
+/* --- Section Number Badge --- */
+.canvas-section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  color: var(--color-text-tertiary);
+  background: var(--color-bg);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* --- Section Body / Textarea --- */
+.canvas-section-body {
+  flex: 1;
+  display: flex;
+}
+
+.canvas-section-textarea {
+  flex: 1;
+  width: 100%;
+  padding: var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  resize: none;
+  outline: none;
+  min-height: 80px;
+}
+
+.canvas-section-textarea::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.canvas-section-textarea:focus {
+  background: var(--color-accent-subtle);
+}
+
+/* --- Desktop sizing adjustments --- */
+@media (min-width: 1024px) {
+  .canvas-section {
+    min-height: 0;
+  }
+
+  .canvas-section-textarea {
+    min-height: 100px;
+  }
+
+  /* Bottom row sections are shorter */
+  .canvas-section[data-section="cost"] .canvas-section-textarea,
+  .canvas-section[data-section="revenue"] .canvas-section-textarea {
+    min-height: 70px;
+  }
+}

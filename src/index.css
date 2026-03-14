@@ -1,0 +1,344 @@
+/* ============================================================
+   Design Tokens & Global Styles
+   ============================================================ */
+
+/* --- Light Theme (default) --- */
+:root {
+  /* Background & Surface */
+  --color-bg: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-border: #e2e5e9;
+  --color-border-subtle: #eef0f2;
+  --color-hover: #f1f3f5;
+  --color-active: #e9ecef;
+
+  /* Text */
+  --color-text: #1a1d21;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
+  --color-text-inverse: #ffffff;
+
+  /* Accent */
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-subtle: #eff6ff;
+  --color-accent-text: #1e40af;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-success-subtle: #f0fdf4;
+  --color-warning: #d97706;
+  --color-warning-subtle: #fffbeb;
+  --color-danger: #dc2626;
+  --color-danger-subtle: #fef2f2;
+  --color-info: #0284c7;
+  --color-info-subtle: #f0f9ff;
+
+  /* Section accent colors (subtle tints for canvas headers) */
+  --section-problem: #fef2f2;
+  --section-solution: #f0fdf4;
+  --section-uvp: #eff6ff;
+  --section-advantage: #fefce8;
+  --section-customers: #fdf4ff;
+  --section-channels: #fff7ed;
+  --section-metrics: #f0fdfa;
+  --section-cost: #faf5ff;
+  --section-revenue: #ecfdf5;
+
+  --section-problem-border: #fecaca;
+  --section-solution-border: #bbf7d0;
+  --section-uvp-border: #bfdbfe;
+  --section-advantage-border: #fef08a;
+  --section-customers-border: #f5d0fe;
+  --section-channels-border: #fed7aa;
+  --section-metrics-border: #99f6e4;
+  --section-cost-border: #e9d5ff;
+  --section-revenue-border: #a7f3d0;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
+    Menlo, Consolas, monospace;
+
+  --text-xs: 0.6875rem;   /* 11px */
+  --text-sm: 0.8125rem;   /* 13px */
+  --text-base: 0.9375rem; /* 15px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.08), 0 8px 10px rgba(0, 0, 0, 0.04);
+
+  /* Borders */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* Transitions */
+  --transition-fast: 0.1s ease;
+  --transition-base: 0.15s ease;
+  --transition-slow: 0.25s ease;
+  --transition-slide: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --sidebar-width: 280px;
+  --header-height: 48px;
+}
+
+/* --- Dark Theme --- */
+[data-theme="dark"] {
+  --color-bg: #0c0c0e;
+  --color-surface: #161618;
+  --color-surface-raised: #1e1e21;
+  --color-border: #2a2a2e;
+  --color-border-subtle: #222225;
+  --color-hover: #25252a;
+  --color-active: #2e2e34;
+
+  --color-text: #ececef;
+  --color-text-secondary: #9898a0;
+  --color-text-tertiary: #6e6e78;
+  --color-text-inverse: #0c0c0e;
+
+  --color-accent: #5b92f7;
+  --color-accent-hover: #7dacfa;
+  --color-accent-subtle: #172035;
+  --color-accent-text: #93bbfc;
+
+  --color-success: #34d27b;
+  --color-success-subtle: #0d2818;
+  --color-warning: #f5a623;
+  --color-warning-subtle: #2a1f0a;
+  --color-danger: #f06060;
+  --color-danger-subtle: #2a1010;
+  --color-info: #38b6f1;
+  --color-info-subtle: #0c2233;
+
+  --section-problem: #1f1418;
+  --section-solution: #121e16;
+  --section-uvp: #131a28;
+  --section-advantage: #1c1b10;
+  --section-customers: #1d1424;
+  --section-channels: #1e1810;
+  --section-metrics: #101e1c;
+  --section-cost: #18142a;
+  --section-revenue: #101e18;
+
+  --section-problem-border: #3d2020;
+  --section-solution-border: #1e3a22;
+  --section-uvp-border: #1e2d4a;
+  --section-advantage-border: #3a3518;
+  --section-customers-border: #3a2048;
+  --section-channels-border: #3a2e18;
+  --section-metrics-border: #1a3a35;
+  --section-cost-border: #2e1e50;
+  --section-revenue-border: #1a3a28;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.35), 0 4px 6px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.4), 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* System preference fallback when no data-theme is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0c0c0e;
+    --color-surface: #161618;
+    --color-surface-raised: #1e1e21;
+    --color-border: #2a2a2e;
+    --color-border-subtle: #222225;
+    --color-hover: #25252a;
+    --color-active: #2e2e34;
+
+    --color-text: #ececef;
+    --color-text-secondary: #9898a0;
+    --color-text-tertiary: #6e6e78;
+    --color-text-inverse: #0c0c0e;
+
+    --color-accent: #5b92f7;
+    --color-accent-hover: #7dacfa;
+    --color-accent-subtle: #172035;
+    --color-accent-text: #93bbfc;
+
+    --color-success: #34d27b;
+    --color-success-subtle: #0d2818;
+    --color-warning: #f5a623;
+    --color-warning-subtle: #2a1f0a;
+    --color-danger: #f06060;
+    --color-danger-subtle: #2a1010;
+    --color-info: #38b6f1;
+    --color-info-subtle: #0c2233;
+
+    --section-problem: #1f1418;
+    --section-solution: #121e16;
+    --section-uvp: #131a28;
+    --section-advantage: #1c1b10;
+    --section-customers: #1d1424;
+    --section-channels: #1e1810;
+    --section-metrics: #101e1c;
+    --section-cost: #18142a;
+    --section-revenue: #101e18;
+
+    --section-problem-border: #3d2020;
+    --section-solution-border: #1e3a22;
+    --section-uvp-border: #1e2d4a;
+    --section-advantage-border: #3a3518;
+    --section-customers-border: #3a2048;
+    --section-channels-border: #3a2e18;
+    --section-metrics-border: #1a3a35;
+    --section-cost-border: #2e1e50;
+    --section-revenue-border: #1a3a28;
+
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.35), 0 4px 6px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.4), 0 8px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ============================================================
+   CSS Reset
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Focus Management (WCAG 2.4.7)
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================================================
+   Selection
+   ============================================================ */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* ============================================================
+   Utility
+   ============================================================ */
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
